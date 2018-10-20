@@ -11,7 +11,7 @@ let server = require('http').createServer(function(req, res) {
   
   let path = url.parse(req.url, true).pathname;
 
-  let safePath = path.split('/').filter(e => ! e.startsWith('.')).join('/')
+  let safePath = path.split('/').filter(function(e) { return ! e.startsWith('.'); }).join('/')
   if (safePath === '/') {
     safePath = '/index.html';
   }
