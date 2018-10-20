@@ -6,7 +6,7 @@ const util = require('util');
 
 const PORT = 8001;
 
-let server = require('http').createServer((req, res) => {
+let server = require('http').createServer(function(req, res) {
   console.log("Got request!", req.method, req.url);
   
   let path = url.parse(req.url, true).pathname;
