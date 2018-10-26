@@ -1,10 +1,11 @@
-const fs = require('fs');
-const readline = require('readline');
-const mime = require('mime');
-const url = require('url');
-const util = require('util');
+let fs = require('fs');
+let http = require('http');
+let readline = require('readline');
+let mime = require('mime');
+let url = require('url');
+let util = require('util');
 
-const PORT = 8001;
+let PORT = 8001;
 
 function isSafeComponent(pathComponent) {
   return ! pathComponent.startsWith('.');
@@ -38,7 +39,6 @@ function handleRequest(req, res) {
   }  
 }
 
-let server = require('http').createServer(handleRequest);
-
+let server = http.createServer(handleRequest);
 server.listen(PORT);
 console.log("Listening on port", PORT);
